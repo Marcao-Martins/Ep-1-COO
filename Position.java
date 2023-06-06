@@ -1,29 +1,20 @@
-/**
- * Classe usada para definição de estrutura de posições e movimentos do jogo
- */
 public class Position {
-    /**
-     * Construtor que define o valor da Linha e da Coluna da posição, baseado no plano cartesiano]
-     * @param row Linha
-     * @param col Coluna
-     */
-    public Position(int row, int col) {
+    private int row;
+    private int col;
 
+    public Position(int row, int col) throws OnitamaGameException {
+        if (row > 4 || col > 4) {
+            throw new OnitamaGameException("Posição inválida. Os números de linha e coluna devem estar entre 0 e 4.");
+        }
+        this.row = row;
+        this.col = col;
     }
 
-    /**
-     * Método que devolve o valor do eixo X da posição
-     * @return Um valor int representando o eixo X
-     */
     public int getRow() {
-        return 0;
+        return row;
     }
 
-    /**
-     * Método que devolve o valor do eixo Y da posição
-     * @return Um valor int representando o eixo Y
-     */
     public int getCol() {
-        return 0;
+        return col;
     }
 }
