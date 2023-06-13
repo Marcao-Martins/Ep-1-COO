@@ -1,5 +1,33 @@
 
 public class GameImpl implements Game {
+	private String nomeRed;
+	private String nomeBlue;
+	private Card[] cartas;
+	private Deck deck;
+
+	
+	
+	public GameImpl() {
+		super();
+	}
+
+	
+	public GameImpl(String nomeRed, String nomeBlue) {
+		super();
+		this.nomeRed = nomeRed;
+		this.nomeBlue = nomeBlue;
+	}
+
+	
+
+	public GameImpl(String nomeRed, String nomeBlue, Card[] deck) {
+		super();
+		this.nomeRed = nomeRed;
+		this.nomeBlue = nomeBlue;
+		this.cartas = deck;
+		this.deck = new Deck(deck);
+	}
+
 
 	@Override
 	public Color getSpotColor(Position position) {
@@ -14,21 +42,19 @@ public class GameImpl implements Game {
 
 	@Override
 	public Card getTableCard() {
-		
-		Card tableCard = new Card(null, null, null);
-		return tableCard;
+		return Card.isTaNaMesa();
 	}
 
 	@Override
 	public Player getRedPlayer() {
-		// TODO Auto-generated method stub
-		return null;
+		Player vermei = new Player("vermei",Color.RED, deck.drawCards(2));
+		return vermei;
 	}
 
 	@Override
 	public Player getBluePlayer() {
-		// TODO Auto-generated method stub
-		return null;
+		Player azul = new Player("vermei",Color.BLUE, deck.drawCards(2));
+		return azul;
 	}
 
 	@Override

@@ -68,9 +68,9 @@ public class Player {
         try {
             if (!verificaMao(oldCard)) {
                 throw new InvalidCardException("Carta não está na mão do jogador");
-            } else if (!newCard.verificaMesa()) {
+            } else if (Card.isTaNaMesa()!=newCard) {
                 throw new InvalidCardException("Carta não está na mesa");
-            } else if (!newCard.verificaMesa() && !verificaMao(oldCard)) {
+            } else if (Card.isTaNaMesa()!=newCard && !verificaMao(oldCard)) {
                 throw new InvalidCardException("A carta da Mesa e da Mão estão erradas");
             } else {
                 oldCard = newCard;

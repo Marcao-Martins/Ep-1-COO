@@ -16,26 +16,26 @@ public class Card {
 	private String name;
 	private Color color;
 	private Position[] positions;
-	private boolean taNaMesa;
+	private static Card TaNaMesa;
     
 
     public Card(String name, Color color, Position[] positions) {
 		this.name = name;
 		this.color = color;
 		this.positions = positions;
-		this.taNaMesa=true;
+
 	}
 
 	
 
-    public boolean isTaNaMesa() {
-		return taNaMesa;
+    public static Card isTaNaMesa() {
+		return TaNaMesa;
 	}
 
 
 
-	public void setTaNaMesa(boolean taNaMesa) {
-		this.taNaMesa = taNaMesa;
+	public static void setTaNaMesa(Card taNaMesa) {
+		TaNaMesa = taNaMesa;
 	}
 
 
@@ -66,28 +66,28 @@ public class Card {
      */
 	public static Card[] createCards() { 
 		/* Gabigol = Tigre */
-		Card gabigol = new Card("Gabigol", Color.NONE, new Position[] { new Position(0, 1), new Position(0, -2) });
+		Card gabigol = new Card("Gabigol", Color.BLUE, new Position[] { new Position(0, 1), new Position(0, -2) });
 
 		/* Zico = Dragão */
-		Card zico = new Card("Zico", Color.NONE, new Position[] { new Position(-1, 1), new Position(1, 1), new Position(-2, -1), new Position(2, -1) });
+		Card zico = new Card("Zico", Color.RED, new Position[] { new Position(-1, 1), new Position(1, 1), new Position(-2, -1), new Position(2, -1) });
 
 		/* Arrascaeta = Sapo */
-		Card arrascaeta = new Card("Arrascaeta", Color.NONE, new Position[] { new Position(-1, -1), new Position(-2, 0), new Position(1, 1) });
+		Card arrascaeta = new Card("Arrascaeta", Color.RED, new Position[] { new Position(-1, -1), new Position(-2, 0), new Position(1, 1) });
 
 		/* ViniciusJunior = Coelho */
-		Card viniciusJunior = new Card("ViniciusJunior", Color.NONE, new Position[] { new Position(1, 1), new Position(2, 0), new Position(-1, 1) });
+		Card viniciusJunior = new Card("ViniciusJunior", Color.BLUE, new Position[] { new Position(1, 1), new Position(2, 0), new Position(-1, 1) });
 
 		/* Pedro = Carangueijo */
-		Card pedro = new Card("Pedro", Color.NONE, new Position[] { new Position(0, -1), new Position(-2, 0), new Position(2, 0) });
+		Card pedro = new Card("Pedro", Color.BLUE, new Position[] { new Position(0, -1), new Position(-2, 0), new Position(2, 0) });
 
 		/* Adriano = Elefante */
-		Card adriano = new Card("Adriano", Color.NONE, new Position[] { new Position(-1, 0), new Position(-1, -1), new Position(1, 0), new Position(1, -1) });
+		Card adriano = new Card("Adriano", Color.RED, new Position[] { new Position(-1, 0), new Position(-1, -1), new Position(1, 0), new Position(1, -1) });
 
 		/* Everton Ribeiro = Ganso */
-		Card evertonRibeiro = new Card("EvertonRibeiro", Color.NONE, new Position[] { new Position(-1, 0), new Position(-1, -1), new Position(1, 0), new Position(1, 1) });
+		Card evertonRibeiro = new Card("EvertonRibeiro", Color.BLUE, new Position[] { new Position(-1, 0), new Position(-1, -1), new Position(1, 0), new Position(1, 1) });
 
 		/* Bruno Henrique = Galo */
-		Card brunoHenrique = new Card("BrunoHenrique", Color.NONE, new Position[] { new Position(-1, 0), new Position(-1, 1), new Position(1, 0), new Position(1, -1) });
+		Card brunoHenrique = new Card("BrunoHenrique", Color.RED, new Position[] { new Position(-1, 0), new Position(-1, 1), new Position(1, 0), new Position(1, -1) });
 
 
         Card[] allCards = { arrascaeta, gabigol, brunoHenrique, viniciusJunior, adriano, pedro, evertonRibeiro, zico };
@@ -105,20 +105,7 @@ public class Card {
 
         return selectedCards.toArray(new Card[0]);
     }
-
+	
     
-   
-    /*Metodo pra verificar se a carta esta na mesa*/
-    
-    public boolean verificaMesa() throws InvalidCardException{
-		
-    	if(this.taNaMesa==true) {
-    		return true;
-    	}
-    	
-    	return false;		
-    	
-    }
-
 
 }
